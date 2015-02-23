@@ -49,12 +49,13 @@ int main(int argc, char* argv[])
   for (source = 1;source <= sz-1; source++) {
     dot = dot + loc_dots[source];
   }
-    printf( "dot product = %f\n",dot);
+  //printf( "dot product = %f\n",dot);
   }
-
+ 
+  MPI_Barrier(MPI_COMM_WORLD);
   double endTime = MPI_Wtime();
   printf("Compute dot product on rank %d took %f seconds\n", my_rank, endTime - startTime);
-      
+
   MPI_Finalize();
   exit (0);
 }
